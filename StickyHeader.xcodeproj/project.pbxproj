@@ -15,6 +15,7 @@
 		105A241D1C863D7C0017ACB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105A241B1C863D7C0017ACB4 /* LaunchScreen.storyboard */; };
 		105A24281C863D7C0017ACB4 /* StickyHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A24271C863D7C0017ACB4 /* StickyHeaderTests.swift */; };
 		105A24331C863D7C0017ACB4 /* StickyHeaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A24321C863D7C0017ACB4 /* StickyHeaderUITests.swift */; };
+		105A24411C863F3F0017ACB4 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A24401C863F3F0017ACB4 /* CustomLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		105A242E1C863D7C0017ACB4 /* StickyHeaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickyHeaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		105A24321C863D7C0017ACB4 /* StickyHeaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderUITests.swift; sourceTree = "<group>"; };
 		105A24341C863D7C0017ACB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		105A24401C863F3F0017ACB4 /* CustomLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				105A240F1C863D7B0017ACB4 /* AppDelegate.swift */,
 				105A24111C863D7C0017ACB4 /* ViewController.swift */,
+				105A24401C863F3F0017ACB4 /* CustomLayout.swift */,
 				105A24131C863D7C0017ACB4 /* Main.storyboard */,
 				105A24191C863D7C0017ACB4 /* Assets.xcassets */,
 				105A241B1C863D7C0017ACB4 /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 			files = (
 				105A24121C863D7C0017ACB4 /* ViewController.swift in Sources */,
 				105A24101C863D7B0017ACB4 /* AppDelegate.swift in Sources */,
+				105A24411C863F3F0017ACB4 /* CustomLayout.swift in Sources */,
 				105A24181C863D7C0017ACB4 /* StickyHeader.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
