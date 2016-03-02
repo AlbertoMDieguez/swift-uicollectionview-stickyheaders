@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeaderSection" customModule="StickyHeader" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="7ru-TT-8Dx" customClass="HeaderSection" customModule="StickyHeader" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="187"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8qq-e0-taR" userLabel="sectionImg">
+                    <rect key="frame" x="8" y="37" width="112" height="112"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="8qq-e0-taR" secondAttribute="height" multiplier="1:1" id="e0F-p7-E6J"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Animal title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TNZ-TS-fnz" userLabel="sectionTitle">
+                    <rect key="frame" x="130" y="83" width="182" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8qq-e0-taR" firstAttribute="leading" secondItem="7ru-TT-8Dx" secondAttribute="leading" constant="8" id="5es-bG-Q8t"/>
+                <constraint firstItem="TNZ-TS-fnz" firstAttribute="leading" secondItem="8qq-e0-taR" secondAttribute="leading" id="Gwi-Lb-YoA"/>
+                <constraint firstItem="TNZ-TS-fnz" firstAttribute="top" secondItem="8qq-e0-taR" secondAttribute="top" id="QK7-VS-cw3"/>
+                <constraint firstItem="8qq-e0-taR" firstAttribute="height" secondItem="7ru-TT-8Dx" secondAttribute="height" multiplier="0.6" id="Td1-rH-CpA"/>
+                <constraint firstItem="8qq-e0-taR" firstAttribute="centerY" secondItem="7ru-TT-8Dx" secondAttribute="centerY" id="WTT-SR-26A"/>
+                <constraint firstAttribute="trailing" secondItem="TNZ-TS-fnz" secondAttribute="trailing" constant="8" id="kGZ-fR-Yan"/>
+                <constraint firstItem="TNZ-TS-fnz" firstAttribute="centerY" secondItem="8qq-e0-taR" secondAttribute="centerY" id="prM-VF-79s"/>
+                <constraint firstItem="8qq-e0-taR" firstAttribute="top" secondItem="7ru-TT-8Dx" secondAttribute="top" constant="8" id="q0V-hT-03H"/>
+                <constraint firstItem="TNZ-TS-fnz" firstAttribute="leading" secondItem="8qq-e0-taR" secondAttribute="trailing" constant="10" id="z59-uk-mI9"/>
+            </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="q0V-hT-03H"/>
+                    <exclude reference="Gwi-Lb-YoA"/>
+                    <exclude reference="QK7-VS-cw3"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="animalTitle" destination="TNZ-TS-fnz" id="c1Z-ch-p1z"/>
+                <outlet property="imageImg" destination="8qq-e0-taR" id="gtv-Di-Ptl"/>
+            </connections>
+            <point key="canvasLocation" x="487" y="290.5"/>
+        </collectionReusableView>
+    </objects>
+</document>
