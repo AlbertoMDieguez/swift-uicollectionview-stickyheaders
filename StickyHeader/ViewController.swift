@@ -8,96 +8,113 @@
 
 import UIKit
 
-class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+enum StickyHeadersReusablesId:String {
+    case HeaderSectionViewId = "headId"
+    case HeaderSectionCellId = "cellId"
+}
 
-    let data:[String] = ["data 0","data 1","data 2","data 3","data 4","data 5","data 6","data 7","data 8","data 9","data 10","data 11","data 12"]
-    
+class ViewController: UIViewController {
+    let cellSize:CGSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: UIScreen.mainScreen().bounds.width/3)
+    var sectionsCount:Int?
+    var data:[HeaderSectionVM] = [] {
+        didSet{
+            sectionsCount = data.count
+        }
+    }
     var collection:UICollectionView?
     var customLayout:CustomLayout = CustomLayout()
     
+    
     override func viewDidLoad() {
+        
+        //Get data to present
+        self.data = self.generateCollectionData()
+        //Init collection view with custom layout
         self.collection  = UICollectionView(frame: CGRectZero, collectionViewLayout: customLayout)
-        self.collection?.registerClass(Header.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "head")
-        self.collection?.registerClass(CollectionCell.self, forCellWithReuseIdentifier: "cell")
+        //Set delegates
         self.collection?.delegate = self
         self.collection?.dataSource = self
+        //Set collection frame
         self.collection?.frame = UIScreen.mainScreen().bounds
+        //Add collection to UIController
         self.view.addSubview(self.collection!)
+        //Register cells & supplementary view on collection
+        registerCells()
+        
+    }
+
+    func registerCells(){
+        self.collection?.registerNib(
+            UINib.init(nibName: "HeaderSectionView", bundle: nil),
+            forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+            withReuseIdentifier: StickyHeadersReusablesId.HeaderSectionViewId.rawValue)
+        self.collection?.registerClass(CollectionCell.self, forCellWithReuseIdentifier: StickyHeadersReusablesId.HeaderSectionCellId.rawValue)
     }
     
-    //MARK: UICollectionViewDataSource & UICollectionViewDelegate
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSizeMake(UIScreen.mainScreen().bounds.width, 50)
+    func generateCollectionData()->[HeaderSectionVM]{
+        var auxData:[HeaderSectionVM] = []
+        for index in 0...26 {
+            auxData.append(HeaderSectionVM(index: index))
+        }
+        return auxData
+    }
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+}
+
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
+    // Section Header Size
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int) -> CGSize {
+            
+        return CGSizeMake(UIScreen.mainScreen().bounds.width, collectionView.frame.width/5)
     }
     
+    // Sections count
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return self.data.count
     }
-
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    
+    // Supplementary view
+    func collectionView(collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+            
         switch kind {
         case UICollectionElementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "head", forIndexPath: indexPath) as! Header
-            if indexPath.section % 2 == 0 {
-                headerView.backgroundColor = UIColor.grayColor()
-            }
+            
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: StickyHeadersReusablesId.HeaderSectionViewId.rawValue, forIndexPath: indexPath) as! HeaderSection
+            
+            headerView.setData(self.data[indexPath.section])
             return headerView
         default:
             assert(false, "Unexpected element kind")
         }
     }
+    
+    //Items in section count
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
         return 1
     }
+    
+    //Cell for item at index path
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell{
-            let cell:CollectionCell = collectionView.dequeueReusableCellWithReuseIdentifier("cell", forIndexPath: indexPath) as! CollectionCell
-            cell.setData(self.data[indexPath.section])
-            return cell
-    }
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
-        return CGSize(width: collectionView.frame.width , height: collectionView.frame.width/2)
-    }
-}
-
-
-class Header: UICollectionReusableView {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        self.backgroundColor = UIColor.whiteColor()
-    }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-}
-
-class CollectionCell:UICollectionViewCell{
-    
-    let rateLabel:UILabel = {
-        let text = UILabel()
-        text.textAlignment = .Center
-        text.textColor = UIColor.whiteColor()
-        text.adjustsFontSizeToFitWidth = true
-        return text
-    }()
-    
-    convenience init(){
-        self.init(frame: CGRectZero)
-    }
-    override init(frame: CGRect) {
-        super.init(frame:frame)
-        self.setupUI()
+        let cell:CollectionCell = collectionView.dequeueReusableCellWithReuseIdentifier(StickyHeadersReusablesId.HeaderSectionCellId.rawValue, forIndexPath: indexPath) as! CollectionCell
         
+        cell.setData(self.data[indexPath.section])
+        
+        return cell
     }
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        self.setupUI()
-    }
-    func setData(data:String){
-        self.rateLabel.text = data
-    }
-    func setupUI() {
-        contentView.addSubview(rateLabel)
-        rateLabel.frame = contentView.frame
+    
+    //Size for item at index path
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize{
+        
+        return self.cellSize
     }
 }
+
+
 

@@ -15,7 +15,11 @@
 		105A241D1C863D7C0017ACB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 105A241B1C863D7C0017ACB4 /* LaunchScreen.storyboard */; };
 		105A24281C863D7C0017ACB4 /* StickyHeaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A24271C863D7C0017ACB4 /* StickyHeaderTests.swift */; };
 		105A24331C863D7C0017ACB4 /* StickyHeaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A24321C863D7C0017ACB4 /* StickyHeaderUITests.swift */; };
-		105A24411C863F3F0017ACB4 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A24401C863F3F0017ACB4 /* CustomLayout.swift */; };
+		105A24481C8788230017ACB4 /* HeaderSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A24471C8788230017ACB4 /* HeaderSection.swift */; };
+		105A244A1C8788480017ACB4 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A24491C8788480017ACB4 /* CollectionCell.swift */; };
+		105A244D1C8788D00017ACB4 /* CustomLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A244C1C8788D00017ACB4 /* CustomLayout.swift */; };
+		105A24501C87892A0017ACB4 /* HeaderSectionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105A244F1C87892A0017ACB4 /* HeaderSectionVM.swift */; };
+		105A24521C878D0F0017ACB4 /* HeaderSectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 105A24511C878D0F0017ACB4 /* HeaderSectionView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +54,11 @@
 		105A242E1C863D7C0017ACB4 /* StickyHeaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StickyHeaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		105A24321C863D7C0017ACB4 /* StickyHeaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickyHeaderUITests.swift; sourceTree = "<group>"; };
 		105A24341C863D7C0017ACB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		105A24401C863F3F0017ACB4 /* CustomLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLayout.swift; sourceTree = "<group>"; };
+		105A24471C8788230017ACB4 /* HeaderSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderSection.swift; path = Cells/HeaderSection.swift; sourceTree = "<group>"; };
+		105A24491C8788480017ACB4 /* CollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionCell.swift; path = Cells/CollectionCell.swift; sourceTree = "<group>"; };
+		105A244C1C8788D00017ACB4 /* CustomLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomLayout.swift; path = Layouts/CustomLayout.swift; sourceTree = "<group>"; };
+		105A244F1C87892A0017ACB4 /* HeaderSectionVM.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HeaderSectionVM.swift; path = Cells/ViewModels/HeaderSectionVM.swift; sourceTree = "<group>"; };
+		105A24511C878D0F0017ACB4 /* HeaderSectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HeaderSectionView.xib; path = Cells/HeaderSectionView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +109,10 @@
 		105A240E1C863D7B0017ACB4 /* StickyHeader */ = {
 			isa = PBXGroup;
 			children = (
+				105A244B1C8788980017ACB4 /* Layouts */,
+				105A24461C8787FA0017ACB4 /* Cells */,
 				105A240F1C863D7B0017ACB4 /* AppDelegate.swift */,
 				105A24111C863D7C0017ACB4 /* ViewController.swift */,
-				105A24401C863F3F0017ACB4 /* CustomLayout.swift */,
 				105A24131C863D7C0017ACB4 /* Main.storyboard */,
 				105A24191C863D7C0017ACB4 /* Assets.xcassets */,
 				105A241B1C863D7C0017ACB4 /* LaunchScreen.storyboard */,
@@ -129,6 +138,33 @@
 				105A24341C863D7C0017ACB4 /* Info.plist */,
 			);
 			path = StickyHeaderUITests;
+			sourceTree = "<group>";
+		};
+		105A24461C8787FA0017ACB4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				105A244E1C87890B0017ACB4 /* ViewModels */,
+				105A24471C8788230017ACB4 /* HeaderSection.swift */,
+				105A24491C8788480017ACB4 /* CollectionCell.swift */,
+				105A24511C878D0F0017ACB4 /* HeaderSectionView.xib */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		105A244B1C8788980017ACB4 /* Layouts */ = {
+			isa = PBXGroup;
+			children = (
+				105A244C1C8788D00017ACB4 /* CustomLayout.swift */,
+			);
+			name = Layouts;
+			sourceTree = "<group>";
+		};
+		105A244E1C87890B0017ACB4 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				105A244F1C87892A0017ACB4 /* HeaderSectionVM.swift */,
+			);
+			name = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +274,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105A24521C878D0F0017ACB4 /* HeaderSectionView.xib in Resources */,
 				105A241D1C863D7C0017ACB4 /* LaunchScreen.storyboard in Resources */,
 				105A241A1C863D7C0017ACB4 /* Assets.xcassets in Resources */,
 				105A24151C863D7C0017ACB4 /* Main.storyboard in Resources */,
@@ -265,10 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				105A24501C87892A0017ACB4 /* HeaderSectionVM.swift in Sources */,
+				105A244D1C8788D00017ACB4 /* CustomLayout.swift in Sources */,
+				105A24481C8788230017ACB4 /* HeaderSection.swift in Sources */,
 				105A24121C863D7C0017ACB4 /* ViewController.swift in Sources */,
 				105A24101C863D7B0017ACB4 /* AppDelegate.swift in Sources */,
-				105A24411C863F3F0017ACB4 /* CustomLayout.swift in Sources */,
 				105A24181C863D7C0017ACB4 /* StickyHeader.xcdatamodeld in Sources */,
+				105A244A1C8788480017ACB4 /* CollectionCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,6 +535,7 @@
 				105A24391C863D7C0017ACB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		105A243A1C863D7C0017ACB4 /* Build configuration list for PBXNativeTarget "StickyHeaderTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +544,7 @@
 				105A243C1C863D7C0017ACB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		105A243D1C863D7C0017ACB4 /* Build configuration list for PBXNativeTarget "StickyHeaderUITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +553,7 @@
 				105A243F1C863D7C0017ACB4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
