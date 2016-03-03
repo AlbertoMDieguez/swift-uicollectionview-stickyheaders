@@ -18,7 +18,7 @@ Thanks to [Chris Ledet][ledet] for tutorial to create gifs to upload github [her
 Icons made by [Freepik][freepiklink] from [www.flaticon.com][flaticons] 
 
 [freepiklink]: <http://www.flaticon.com/authors/freepik>
-[flaticons]: <www.flaticon.com>
+[flaticons]: <http://www.flaticon.com>
 [irina]: <http://stackoverflow.com/users/1303179/irina-didkovskaya>
 [answer]: <http://stackoverflow.com/questions/27316263/uicollectionview-sticky-header-in-swift>
 [ledet]: <http://stackoverflow.com/users/204927/chris-ledet>
