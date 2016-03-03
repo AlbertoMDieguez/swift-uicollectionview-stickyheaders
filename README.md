@@ -1,5 +1,5 @@
 # swift-uicollectionview-stickyheaders
-![alt tag](https://github.com/AlbertoMDieguez/swift-uicollectionview-stickyheaders/blob/master/swift-uicollectionview-stickyheadersgif.gif?raw=true)
+![alt tag](https://raw.githubusercontent.com/AlbertoMDieguez/swift-uicollectionview-stickyheaders/2b194ede76167cdc99c8b6a97cfe3d8c56ee5f15/swift-uicollectionview-stickyheadersgif.gif)
 
 Custom example of how to implement Sticky Headers in UICollectionView on swift.
 
